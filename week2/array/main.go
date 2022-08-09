@@ -12,6 +12,7 @@ func basic() {
 		name string
 		age  int
 	}{{"tom", 18}, {"jim", 20}}
+	var arr7 = [5]string{"d", "1", "我"}
 	fmt.Println(arr1)
 	fmt.Println(arr2)
 	fmt.Println(arr3)
@@ -25,6 +26,24 @@ func basic() {
 	fmt.Println(arr5)
 	fmt.Println(arr6)
 	fmt.Println(arr6[1])
+	fmt.Println(arr7)
+	fmt.Println(arr7[2], arr7[4], arr7[0])
+}
+
+func Test() {
+	var arr1 [3]bool = [3]bool{}
+	fmt.Println(arr1)
+	arr1 = [3]bool{false, true, false}
+	fmt.Println(arr1)
+
+	var arr2 = [3]float64{1, 2.01, 3}
+	fmt.Println(arr2)
+
+	var arr3 = [...]string{"te", "li", ""}
+	fmt.Println(len(arr3), cap(arr3), arr3)
+
+	var arr4 = [3]float64{2: 3.14}
+	fmt.Println(arr4)
 }
 
 func arrPoint(arr *[5]int) {
@@ -66,5 +85,6 @@ func main() {
 	//fmt.Println(cap(crr))
 
 	//array2d()
-	basic()
+	//basic()
+	Test()
 }
