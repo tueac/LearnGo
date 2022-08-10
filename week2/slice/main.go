@@ -75,12 +75,37 @@ func update_slice(arr []int) {
 	arr[0] = 100
 }
 
+func Test() {
+	arr1 := []int{1, 2, 3, 4, 5}
+	fmt.Println(len(arr1))
+	fmt.Println(cap(arr1))
+	fmt.Println(arr1[1])
+
+	arr2 := make([]int, 2, 4)
+	fmt.Printf("arr2 长度为%d,容量为%d，前面已定义长度与容量\n", len(arr2), cap(arr2))
+	fmt.Println(arr2)
+
+	arr3 := [][]int{
+		{1, 2},
+		{3, 4, 5},
+	}
+	for i, l1 := range arr3 {
+		for j, ele := range l1 {
+			fmt.Println(i, j, ele)
+		}
+	}
+	fmt.Println(len(arr3), cap(arr3))
+	fmt.Println(arr3[0])
+}
+
 func main() {
 	//slice_init()
 	//slice_append()
 	//coef_cap()
 	//sub_slice()
-	crr := []int{3, 4, 5}
-	update_slice(crr)
-	fmt.Println(crr[0])
+	//crr := []int{3, 4, 5}
+	//update_slice(crr)
+	//fmt.Println(crr[0])
+
+	Test()
 }

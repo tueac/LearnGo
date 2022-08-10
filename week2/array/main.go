@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func basic() {
 	var arr1 [5]int = [5]int{}
@@ -44,6 +46,43 @@ func Test() {
 
 	var arr4 = [3]float64{2: 3.14}
 	fmt.Println(arr4)
+	for i, ele := range arr2 {
+		fmt.Printf("%d %.3f\n", i, ele)
+	}
+	for i := 0; i < len(arr4); i++ {
+		fmt.Printf("%d %.4f\n", i, arr4[i])
+	}
+
+	for _, ele := range arr2 {
+		fmt.Printf("%.2f\n", ele)
+	}
+
+}
+
+func erwei() {
+	arr1 := [2][3]int{{1, 2}, {3, 4, 5}}
+	for h1, arry := range arr1 {
+		for j1, ele := range arry {
+			fmt.Printf("%d %d %d\n", h1, j1, ele)
+		}
+	}
+	fmt.Printf("%p\n", &arr1)
+}
+
+func Duberarr() {
+	arr := [4]int{1, 2, 3, 4}
+	// for range 取得的复制
+	for _, ele := range arr {
+		ele = ele * 2
+		//fmt.Printf("%d %d\n", i, ele)
+	}
+	fmt.Println(arr)
+
+	for i, ele := range arr {
+		arr[i] = ele * 2
+		//fmt.Printf("%d %d\n", i, ele)
+	}
+	fmt.Println(arr)
 }
 
 func arrPoint(arr *[5]int) {
@@ -73,6 +112,12 @@ func array2d() {
 	}
 }
 
+func g() {
+	arr := [4]byte{1, 2, 3, 4}
+	arr[0] = 100
+	fmt.Println(arr)
+}
+
 func main() {
 	//server()
 
@@ -86,5 +131,7 @@ func main() {
 
 	//array2d()
 	//basic()
-	Test()
+	//Test()
+	//erwei()
+	Duberarr()
 }
