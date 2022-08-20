@@ -98,6 +98,58 @@ func Test() {
 	fmt.Println(arr3[0])
 }
 
+func Test_append() {
+	arr := make([]int, 2, 4)
+	fmt.Println(arr)
+	fmt.Println(len(arr), cap(arr))
+	arr = append(arr, 4)
+	fmt.Printf("%p\n", arr)
+	fmt.Println(arr)
+	fmt.Println(len(arr), cap(arr))
+	arr = append(arr, 1)
+	fmt.Println(arr)
+	fmt.Println(len(arr), cap(arr))
+	fmt.Printf("%p\n", arr)
+
+	arr = append(arr, 100, 200)
+	fmt.Println(arr)
+	fmt.Println(len(arr), cap(arr))
+	fmt.Printf("%p\n", arr)
+	fmt.Println(&arr)
+
+	prevCap := cap(arr)
+	for i := 0; i < 1500; i++ {
+		arr = append(arr, 100000)
+		currentCap := cap(arr)
+		if currentCap > prevCap {
+			fmt.Println(prevCap, currentCap)
+			prevCap = currentCap
+		}
+	}
+	fmt.Println(cap(arr))
+}
+
+func Testa() {
+	var arr = make([]int, 0, 4)
+	fmt.Println(arr)
+	fmt.Println(len(arr), cap(arr))
+	fmt.Printf("%p\n", arr)
+
+	brr := append(arr, 100, 200, 300)
+	fmt.Println(brr)
+	fmt.Println(len(brr), cap(brr))
+	fmt.Printf("%p\n", brr)
+	fmt.Println(&brr[0])
+
+	fmt.Print("-------------")
+	fmt.Printf("%p\n%p\n%p\n", &brr, &brr[0], brr)
+	fmt.Printf("%p\n", &brr[1])
+}
+
+func SliceAs(arrte []int) {
+	arrte[0] = 100
+}
+
 func main() {
 	//slice_init()
 	//slice_append()
@@ -107,5 +159,13 @@ func main() {
 	//update_slice(crr)
 	//fmt.Println(crr[0])
 
-	Test()
+	//Test()
+	//Test_append()
+	//Testa()
+
+	arr := make([]int, 3, 5)
+	arr[0] = 123
+	SliceAs(arr)
+	fmt.Println(arr)
+	fmt.Println(len(arr), cap(arr))
 }
